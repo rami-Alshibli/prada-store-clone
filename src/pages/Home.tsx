@@ -10,6 +10,7 @@ import BagsCollection from '../components/BagsCollection';
 import PradasphereNews from '../components/PradasphereNews';
 import Footer from '../components/Footer';
 
+
 const Home: React.FC = () => {
     return (
         <main className="bg-white">
@@ -35,6 +36,7 @@ const Home: React.FC = () => {
             <PradasphereNews />
 
             <Footer />
+
 
         </main>
     );

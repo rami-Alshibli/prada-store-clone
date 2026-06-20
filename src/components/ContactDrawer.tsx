@@ -28,17 +28,12 @@ const ContactDrawer: React.FC<ContactDrawerProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className={`fixed inset-0 z-50 flex justify-end transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
             {/* الخلفية المظللة */}
-            <div
-                className="absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity"
-                onClick={onClose}
-                aria-label="Close contact overlay"
-            ></div>
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-xs transition-opacity duration-500" onClick={onClose}></div>
 
-            {/* الحاوية الجانبية */}
-            <div className="relative w-full max-w-[450px] bg-white h-full shadow-2xl flex flex-col font-primary text-surface-base animate-slide-in-right overflow-y-auto">
-
+            {/* الحاوية الجانبية المنزلقة بنعومة */}
+            <div className={`relative w-full max-w-[450px] bg-white h-full shadow-2xl flex flex-col font-primary text-surface-base transition-transform duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto`}>
                 {/* زر الإغلاق X */}
                 <div className="p-6 flex justify-end">
                     <button onClick={onClose} className="hover:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-black focus-visible:outline-offset-4">
